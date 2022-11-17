@@ -105,6 +105,7 @@ npmm() {(
 #######################
 
 ## List entries in long format
+unalias ll
 ll() {
   ls -l $@
 }
