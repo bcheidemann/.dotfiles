@@ -1,4 +1,4 @@
-_Note: the nvim configs in this folder are based on [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)_ test
+_Note: the nvim configs in this folder are based on [nvim-basic-ide](https://github.com/LunarVim/nvim-basic-ide)_
 
 # A Basic Stable IDE config for Neovim
 
