@@ -181,3 +181,23 @@ help() {
   echo ""
   echo "ALIASES_SCRIPT_PATH=$ALIASES_SCRIPT_PATH"
 }
+
+nvhelp() {
+  echo "LSP Shortcuts"
+  echo "  gd          - Definition"
+  echo "  gD          - Declaration"
+  echo "  K           - Hover"
+  echo "  gI          - Implementation"
+  echo "  gr          - References"
+  echo "  gl          - Open Float"
+  echo "  <leader>lf  - Format"
+  echo "  <leader>li  - LSP Info"
+  echo "  <leader>la  - Code Action"
+  echo "  <leader>lj  - Go To Next"
+  echo "  <leader>lk  - Go To Previous"
+  echo "  <leader>lr  - Rename"
+  echo "  <leader>ls  - Signature Help"
+  echo "  <leader>lq  - Add buffer diagnostics to the location list"
+  echo ""
+}
+
