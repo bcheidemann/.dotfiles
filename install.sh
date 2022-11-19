@@ -5,7 +5,6 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Configuring git user..."
 git config --global user.email "ben@heidemann.co.uk"
 git config --global user.name "Ben Heidemann"
-
 echo ""
 
 # Global .gitignore
@@ -14,11 +13,20 @@ ln -s $BASEDIR/.gitignore $HOME/.gitignore
 
 echo "Configuring git core.excludesfile..."
 git config --global core.excludesfile $HOME/.gitignore
+echo ""
 
+# Create .config directory
+echo "Creating $HOME/.config directory..."
+mkdir -p $HOME/.config
+echo ""
+
+# Install nvim config
+echo "Installing NeoVim config..."
+ln -s $BASEDIR/.config/nvim $HOME/.config/nvim
 echo ""
 
 # Global .aliases
-echo "Please add the following line to your .bashrc or .zshrc file:"
+echo "Please add the following line to your .zshrc file:"
 echo " export ALIASES_SCRIPT_PATH=$BASEDIR/.aliases"
 echo " source \$ALIASES_SCRIPT_PATH"
 
