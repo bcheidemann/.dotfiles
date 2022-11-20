@@ -150,6 +150,22 @@ cdlla() {
 ########
 
 help() {
+  if [[ $# -eq 0 ]]
+  then
+    ahelp
+    nvhelp
+  elif [[ $1 == "aliases" ]]
+  then
+    ahelp
+  elif [[ $1 == "nvim" ]]
+  then
+    nvhelp
+  else
+    echo "Unrecognised argument $2"
+  fi
+}
+
+ahelp() {
   echo "Git Commands"
   echo "  gcm  - Commit"
   echo "  gp   - Pull"
@@ -180,6 +196,7 @@ help() {
   echo "  cdlla - Change directory and list all entries in long format"
   echo ""
   echo "ALIASES_SCRIPT_PATH=$ALIASES_SCRIPT_PATH"
+  echo ""
 }
 
 nvhelp() {
