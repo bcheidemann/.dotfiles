@@ -183,6 +183,12 @@ help() {
 }
 
 nvhelp() {
+  echo "Editor Commands"
+  echo "  :map  - View all mapped keys"
+  echo "  :nmap  - View all mapped keys (normal mode)"
+  echo "  :vmap  - View all mapped keys (visual mode)"
+  echo "  :imap  - View all mapped keys (insert mode)"
+  echo ""
   echo "LSP Shortcuts"
   echo "  gd          - Definition"
   echo "  gD          - Declaration"
@@ -199,8 +205,10 @@ nvhelp() {
   echo "  <leader>ls  - Signature Help"
   echo "  <leader>lq  - Add buffer diagnostics to the location list"
   echo ""
+  echo "Misc"
   echo "  <C-\>       - Toggle Terminal"
   echo "  <C-h>       - Focus Treeview"
   echo "  <C-w>w      - Cycle Windows"
+  echo ""
 }
 
