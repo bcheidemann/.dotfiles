@@ -201,7 +201,7 @@ ahelp() {
 
 nvhelp() {
   echo "Editor Commands"
-  echo "  :map  - View all mapped keys"
+  echo "  :map   - View all mapped keys"
   echo "  :nmap  - View all mapped keys (normal mode)"
   echo "  :vmap  - View all mapped keys (visual mode)"
   echo "  :imap  - View all mapped keys (insert mode)"
@@ -221,6 +221,10 @@ nvhelp() {
   echo "  <leader>lr  - Rename"
   echo "  <leader>ls  - Signature Help"
   echo "  <leader>lq  - Add buffer diagnostics to the location list"
+  echo ""
+  echo "Diffview"
+  echo "  <leader>dvo - Open Diffview"
+  echo "  <leader>dvo - Close Diffview"
   echo ""
   echo "Misc"
   echo "  <C-\>       - Toggle Terminal"
