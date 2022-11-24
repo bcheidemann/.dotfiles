@@ -283,5 +283,11 @@ nvhelp() {
   echo "  <C-h>       - Focus Treeview"
   echo "  <C-w>w      - Cycle Windows"
   echo ""
+  echo "Modes"
+  echo "  <esc>       - Normal"
+  echo "  i           - Insert"
+  echo "  v           - Visual"
+  echo "  <C-v>       - Visual Block"
+  echo ""
 }
 
