@@ -108,7 +108,24 @@ return packer.startup(function(use)
   use { "wuelnerdotexe/vim-astro", commit = "34732be5e9a5c28c2409f4490edf92d46d8b55a9" }
 
   -- Surround
-  use { "kylechui/nvim-surround", commit = "93380716d94e451c340e653ce09d73e9cabe54c6" }
+  use {
+    "kylechui/nvim-surround",
+    commit = "93380716d94e451c340e653ce09d73e9cabe54c6",
+    config = function ()
+      require("nvim-surround").setup({
+        keymaps = {
+          delete = "sd",
+          change = "sc",
+          normal = "s",
+          normal_cur = "ss",
+          normal_cur_line = "SS",
+          normal_line = "S",
+          visual = "<C-s>",
+          visual_line = "<C-S>",
+        }
+      })
+    end
+  }
 
   -- Diffview
   use { "sindrets/diffview.nvim", commit = "d2d9b18bd50fa1363bd8bdf65c9678fb1af125b3", requires = "nvim-lua/plenary.nvim" }

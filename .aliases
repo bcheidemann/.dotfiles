@@ -157,7 +157,7 @@ help() {
   elif [[ $1 == "aliases" ]]
   then
     ahelp
-  elif [[ $1 == "nvim" ]]
+  elif [[ $1 == "nv" ]]
   then
     nvhelp
   else
@@ -225,6 +225,20 @@ nvhelp() {
   echo "Diffview"
   echo "  <leader>dvo - Open Diffview"
   echo "  <leader>dvo - Close Diffview"
+  echo ""
+  echo "Surround"
+  echo "  sd          - Delete surrounds"
+  echo "  sc          - Change surrounds"
+  echo "  s           - Add surrounds"
+  echo "  ss          - Add surrounds for current line"
+  echo "  S           - Add surrounds with new lines"
+  echo "  SS          - Add surrounds for current line with new lines"
+  echo "  <C-s>       - Add surrounds in visual mode"
+  echo "  <C-S>       - Add surrounds in visual mode with new lines"
+  echo ""
+  echo "Navigation"
+  echo "  gg          - Go to start of file"
+  echo "  G           - Go to end of file"
   echo ""
   echo "Misc"
   echo "  <C-\>       - Toggle Terminal"
