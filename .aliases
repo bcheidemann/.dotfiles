@@ -2,8 +2,8 @@
 #  In your .bashrc or .zshrc, source this file as follows:
 #
 #  ```
-#  export ALIASES_SCRIPT_PATH=<local path to this script>
-#  source $ALIASES_SCRIPT_PATH
+#  export DOTFILES_PATH=<local path to .dotfiles repo>
+#  source $DOTFILES_PATH
 #  ```
 
 ################
@@ -146,6 +146,44 @@ cdlla() {
 }
 
 ########
+# Sync #
+########
+dotfiles() {
+  if [[ $# -eq 0 ]]
+  then
+    dfusage
+  elif [[ $1 == "sync" ]]
+  then
+    dfsync
+  elif [[ $1 == "help" ]]
+  then
+    dfusage 
+  else
+    echo "Unrecognised command $1"
+    echo ""
+    dfusage
+  fi
+}
+
+dfusage() {
+  echo "Usage: dotfiles <command>"
+  echo "command:"
+  echo "  sync - Pull latest changes to .dotfiles and source .zshrc"
+  echo "  help - Display this message"
+}
+
+dfsync() {
+  echo "Syncing latest changes from .dotfiles..."
+  RETURN_DIR=$PWD
+  cd $DOTFILES_PATH
+  git pull
+  cd $RETURN_DIR
+  echo "Sourcing $HOME/.zshrc..."
+  source $HOME/.zshrc
+  echo "Done."
+}
+
+########
 # Help #
 ########
 
@@ -161,7 +199,7 @@ help() {
   then
     nvhelp
   else
-    echo "Unrecognised argument $2"
+    echo "Unrecognised argument $1"
   fi
 }
 
@@ -195,7 +233,7 @@ ahelp() {
   echo "  cdla  - Change directory and list all entries"
   echo "  cdlla - Change directory and list all entries in long format"
   echo ""
-  echo "ALIASES_SCRIPT_PATH=$ALIASES_SCRIPT_PATH"
+  echo "DOTFILES_PATH=$DOTFILES_PATH"
   echo ""
 }
 

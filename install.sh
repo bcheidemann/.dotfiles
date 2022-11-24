@@ -27,8 +27,8 @@ echo ""
 
 # Global .aliases
 echo "Please add the following line to your .zshrc file:"
-echo " export ALIASES_SCRIPT_PATH=$BASEDIR/.aliases"
-echo " source \$ALIASES_SCRIPT_PATH"
+echo " export ALIASES_PATH=$BASEDIR"
+echo " source \$ALIASES_SCRIPT_PATH/.aliases"
 
 echo ""
 echo "Done."
