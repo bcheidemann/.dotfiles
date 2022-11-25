@@ -35,6 +35,8 @@ keymap("n", "<C-J>", ":bprevious<CR>", opts)
 -- Clear highlights
 keymap("n", "<leader>h", "<cmd>nohlsearch<CR>", opts)
 
+-- Clear highlights
+keymap("n", "<leader>R", ":edit<CR>", opts)
 
 -- Close buffers
 keymap("n", "<S-q>", "<cmd>Bdelete!<CR>", opts)

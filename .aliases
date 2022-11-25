@@ -282,6 +282,7 @@ nvhelp() {
   echo "  <C-\>       - Toggle Terminal"
   echo "  <C-h>       - Focus Treeview"
   echo "  <C-w>w      - Cycle Windows"
+  echo "  <leader>R   - Reload File"
   echo ""
   echo "Modes"
   echo "  <esc>       - Normal"
