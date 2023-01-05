@@ -192,12 +192,16 @@ help() {
   then
     ahelp
     nvhelp
+    tmuxhelp
   elif [[ $1 == "aliases" ]]
   then
     ahelp
   elif [[ $1 == "nv" ]]
   then
     nvhelp
+  elif [[ $1 == "tmux" ]]
+  then
+    tmuxhelp
   else
     echo "Unrecognised argument $1"
   fi
@@ -278,17 +282,32 @@ nvhelp() {
   echo "  gg          - Go to start of file"
   echo "  G           - Go to end of file"
   echo ""
+  echo "Selection"
+  echo "  vi\"         - Select text within quotes"
+  echo ""
   echo "Misc"
   echo "  <C-\>       - Toggle Terminal"
   echo "  <C-h>       - Focus Treeview"
   echo "  <C-w>w      - Cycle Windows"
   echo "  <leader>R   - Reload File"
+  echo "  <S-q>       - Close Buffer"
+  echo "  <C-j>       - Previous tap"
+  echo "  <C-k>       - Next tap"
   echo ""
   echo "Modes"
   echo "  <esc>       - Normal"
   echo "  i           - Insert"
   echo "  v           - Visual"
   echo "  <C-v>       - Visual Block"
+  echo ""
+}
+
+tmuxhelp() {
+  echo "Tmux Shortcuts"
+  echo "  <C-b>%      - Split pane vertically"
+  echo "  <C-b>\"      - Split pane horizontally"
+  echo "  <C-b>x      - Close pane"
+  echo "  <C-b>o      - Cycle panes"
   echo ""
 }
 
