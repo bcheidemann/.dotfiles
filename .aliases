@@ -60,6 +60,45 @@ gaa() {
   git add . $@
 }
 
+## Show file
+gs() {
+  git show $@
+}
+
+## Show file at HEAD
+gshead() {
+  for ARG in "$@"; do
+    git show HEAD:$ARG
+  done
+}
+
+## Commit hash of file deletion
+gshd() {
+  # We use a for loop to preserve the order of the arguments. By default, git
+  # will sort the output of `git log` by commit date.
+  for ARG in "$@"; do
+    echo $(git log --all --pretty=format:'%H' --diff-filter=D -- $ARG)
+  done
+}
+
+## Commit hash of last change to file
+gshlc() {
+  local DELETED_HASHES=$(gshd $@)
+  while read -r DELETED_HASH; do
+    echo $(git log --pretty=format:%H -n 1 $DELETED_HASH^)
+  done <<< "$DELETED_HASHES"
+}
+
+## Show last contents of deleted file
+gslc() {
+  local LAST_CHANGED_HASHES=$(gshlc $@)
+  local I=1
+  while read -r LAST_CHANGED_HASH; do
+    git show $LAST_CHANGED_HASH:$@[$I]
+    I=$((I+1))
+  done <<< "$LAST_CHANGED_HASHES"
+}
+
 ####################
 # Generic Commands #
 ####################
@@ -80,6 +119,10 @@ wargs() {(
     fi
   done
 )}
+
+zsrc() {
+  source $HOME/.zshrc
+}
 
 ################
 # NPM Commands #
@@ -193,6 +236,7 @@ help() {
     ahelp
     nvhelp
     tmuxhelp
+    vscodehelp
   elif [[ $1 == "aliases" ]]
   then
     ahelp
@@ -202,6 +246,9 @@ help() {
   elif [[ $1 == "tmux" ]]
   then
     tmuxhelp
+  elif [[ $1 == "vscode" ]]
+  then
+    vscodehelp
   else
     echo "Unrecognised argument $1"
   fi
@@ -209,19 +256,25 @@ help() {
 
 ahelp() {
   echo "Git Commands"
-  echo "  gcm  - Commit"
-  echo "  gp   - Pull"
-  echo "  gpo  - Pull Origin"
-  echo "  gpsh - Push"
-  echo "  gpbl - Publish"
-  echo "  gpblo- Publish Origin"
-  echo "  gco  - Checkout"
-  echo "  gcb  - Checkout New"
-  echo "  ga   - Add"
-  echo "  gaa  - Add All"
+  echo "  gcm    - Commit"
+  echo "  gp     - Pull"
+  echo "  gpo    - Pull origin"
+  echo "  gpsh   - Push"
+  echo "  gpbl   - Publish"
+  echo "  gpblo  - Publish origin"
+  echo "  gco    - Checkout"
+  echo "  gcb    - Checkout new"
+  echo "  ga     - Add"
+  echo "  gaa    - Add all"
+  echo "  gs     - Show"
+  echo "  gshead - Show HEAD"
+  echo "  gshd   - Show commit hash of file deletion"
+  echo "  gshlc  - Show commit hash of last change to file"
+  echo "  gslc   - Show last contents of deleted file"
   echo ""
   echo "Generic Commands"
   echo "  wargs - Run command once with each arg string"
+  echo "  zsrc  - Source the .zshrc file"
   echo ""
   echo "NPM Commands"
   echo "  npmr  - Run npm command"
@@ -311,3 +364,11 @@ tmuxhelp() {
   echo ""
 }
 
+vscodehelp() {
+  echo "VS Code Shortcuts (Mac)"
+  echo "  ⌘ + shift + o    - Navigate outline"
+  echo "  ⌘ + \\            - Split pane"
+  echo "  ⌘ + shift + {    - Previous tab"
+  echo "  ⌘ + shift + }    - Next tab"
+  echo ""
+}
