@@ -81,7 +81,7 @@ gshd() {
   done
 }
 
-## Commit hash of last change to file
+## Commit hash of last change to file before deletion
 gshlc() {
   local DELETED_HASHES=$(gshd $@)
   while read -r DELETED_HASH; do
@@ -269,7 +269,7 @@ ahelp() {
   echo "  gs     - Show"
   echo "  gshead - Show HEAD"
   echo "  gshd   - Show commit hash of file deletion"
-  echo "  gshlc  - Show commit hash of last change to file"
+  echo "  gshlc  - Show commit hash of last change to file before deletion"
   echo "  gslc   - Show last contents of deleted file"
   echo ""
   echo "Generic Commands"
