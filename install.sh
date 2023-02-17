@@ -1,3 +1,14 @@
+# Check we are using zsh
+echo "Checking we are using ZSH..."
+if [[ $ZSH_NAME == "zsh" ]]; then
+  echo ""
+else
+  echo "Error: Not using ZSH."
+  echo ""
+  echo "Please use ZSH to run this script."
+  exit 1
+fi
+
 # The .dotfiles repo directory
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
