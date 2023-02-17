@@ -40,6 +40,13 @@ echo ""
 echo "Please add the following line to your .zshrc file:"
 echo " export ALIASES_PATH=$BASEDIR"
 echo " source \$ALIASES_SCRIPT_PATH/.aliases"
-
 echo ""
+
+# Recommended bindkey commands
+echo "You may also want to add the following lines to your .zshrc file:"
+echo " bindkey \"^[[3~\" delete-char"
+echo " bindkey \"^[[1;5C\" emacs-forward-word"
+echo " bindkey \"^[[1;5D\" emacs-backward-word"
+echo ""
+
 echo "Done."
