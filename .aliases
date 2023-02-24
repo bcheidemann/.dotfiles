@@ -15,6 +15,15 @@ gcm() {
   git commit -m $@
 }
 
+## Commit Empty
+gcme() {
+  if [ "$#" -eq 0 ]; then
+    git commit --allow-empty -m "Empty commit"
+    return 1
+  fi
+  git commit --allow-empty -m $@
+}
+
 ## Pull
 gp() {
   git pull $@
@@ -257,6 +266,7 @@ help() {
 ahelp() {
   echo "Git Commands"
   echo "  gcm    - Commit"
+  echo "  gcme   - Commit (allow empty)"
   echo "  gp     - Pull"
   echo "  gpo    - Pull origin"
   echo "  gpsh   - Push"
