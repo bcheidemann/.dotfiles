@@ -38,8 +38,9 @@ echo ""
 
 # Global .aliases
 echo "Please add the following line to your .zshrc file:"
-echo " export ALIASES_PATH=$BASEDIR"
-echo " source \$ALIASES_SCRIPT_PATH/.aliases"
+echo " export DOTFILES_PATH=$BASEDIR"
+echo " source \$DOTFILES_PATH/.aliases"
+echo " export PATH=\"$DOTFILES_PATH/bin:$PATH\""
 echo ""
 
 # Recommended bindkey commands

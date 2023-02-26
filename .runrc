@@ -1,0 +1,15 @@
+commands:
+  - name: Example Command
+    alias: example
+    run: |
+      echo "This is an example command"
+      echo "It runs like a script"
+  - name: Run Says
+    alias: says
+    run: |
+      echo Run says "'__@'"
+  - name: VIM
+    alias: vim
+    run: |
+      source $HOME/.zshrc
+      vi __@

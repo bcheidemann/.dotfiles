@@ -1,0 +1,23 @@
+{
+  "name": "@bcheidemann/dotfiles",
+  "version": "1.0.0",
+  "description": "Dotfiles",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bcheidemann/.dotfiles.git"
+  },
+  "author": "Ben Heidemann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bcheidemann/.dotfiles/issues"
+  },
+  "homepage": "https://github.com/bcheidemann/.dotfiles#readme",
+  "devDependencies": {
+    "@types/node": "^18.14.1"
+  }
+}
