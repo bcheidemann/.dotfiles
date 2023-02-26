@@ -1,12 +1,40 @@
+#!/usr/bin/env zsh
+
 # Check we are using zsh
 echo "Checking we are using ZSH..."
-if [[ $ZSH_NAME == "zsh" ]]; then
+if [[ -v ZSH_NAME ]]; then
   echo ""
 else
   echo "Error: Not using ZSH."
   echo ""
   echo "Please use ZSH to run this script."
   exit 1
+fi
+
+# Check we have cargo installed
+echo "Checking we have cargo installed..."
+if ! command -v cargo &> /dev/null
+then
+    echo "Error: cargo could not be found"
+    echo ""
+    echo "Please install cargo to run this script."
+    exit 1
+fi
+
+# Install deno
+if ! command -v deno &> /dev/null
+then
+    echo "Installing deno..."
+    cargo install deno
+    echo ""
+fi
+
+# Install with-env
+if ! command -v with-env &> /dev/null
+then
+    echo "Installing with-env..."
+    deno install --allow-read --allow-run https://deno.land/x/with_env/with-env.ts
+    echo ""
 fi
 
 # The .dotfiles repo directory
@@ -19,22 +47,28 @@ git config --global user.name "Ben Heidemann"
 echo ""
 
 # Global .gitignore
-echo "Linking $BASEDIR/.gitignore to $HOME/.gitignore..."
-ln -s $BASEDIR/.gitignore $HOME/.gitignore
+if ! git config --global core.excludesfile | grep -q "$HOME/.gitignore"; then
+    echo "Linking $BASEDIR/.gitignore to $HOME/.gitignore..."
+    ln -s $BASEDIR/.gitignore $HOME/.gitignore
 
-echo "Configuring git core.excludesfile..."
-git config --global core.excludesfile $HOME/.gitignore
-echo ""
+    echo "Configuring git core.excludesfile..."
+    git config --global core.excludesfile $HOME/.gitignore
+    echo ""
+fi
 
 # Create .config directory
-echo "Creating $HOME/.config directory..."
-mkdir -p $HOME/.config
-echo ""
+if [ ! -d "$HOME/.config" ]; then
+    echo "Creating $HOME/.config directory..."
+    mkdir -p $HOME/.config
+    echo ""
+fi
 
 # Install nvim config
-echo "Installing NeoVim config..."
-ln -s $BASEDIR/.config/nvim $HOME/.config/nvim
-echo ""
+if [ ! -d "$HOME/.config/nvim" ]; then
+    echo "Installing NeoVim config..."
+    ln -s $BASEDIR/.config/nvim $HOME/.config/nvim
+    echo ""
+fi
 
 # Global .aliases
 echo "Please add the following line to your .zshrc file:"
