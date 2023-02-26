@@ -1,3 +1,6 @@
+runner:
+  command: bash
+  args: ["-c"]
 commands:
   - name: Example Command
     alias: example
@@ -6,6 +9,9 @@ commands:
       echo "It runs like a script"
   - name: Run Says
     alias: says
+    runner:
+      command: zsh
+      args: ["-c"]
     run: |
       echo Run says "'__@'"
   - name: VIM
@@ -13,3 +19,15 @@ commands:
     run: |
       source $HOME/.zshrc
       vi __@
+  - name: Hello Deno
+    alias: hello-deno
+    runner:
+      command: deno
+      args: ["eval"]
+    run: |
+      import rainbow from "npm:chalk-rainbow@1.0.0"
+      import _chalk from "npm:chalk@4.1.0";
+
+      const chalk = new _chalk.Instance({ level: 3 });
+
+      console.log(chalk.bold(rainbow("Hello Deno!")));
