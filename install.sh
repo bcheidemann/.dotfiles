@@ -37,6 +37,13 @@ then
     echo ""
 fi
 
+if ! command -v run &> /dev/null
+then
+    echo "Installing runrc..."
+    deno install --allow-all -n run https://raw.githubusercontent.com/bcheidemann/runrc/main/src/main.ts
+    echo ""
+fi
+
 # The .dotfiles repo directory
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 

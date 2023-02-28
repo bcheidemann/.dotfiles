@@ -1,2 +1,0 @@
-#!/usr/bin/env zsh
-deno run --allow-all "$DOTFILES_PATH/src/run.ts" $@
