@@ -82,6 +82,7 @@ echo "Please add the following line to your .zshrc file:"
 echo " export DOTFILES_PATH=$BASEDIR"
 echo " source \$DOTFILES_PATH/.aliases"
 echo " export PATH=\"$DOTFILES_PATH/bin:$PATH\""
+echo " export PATH=\"$HOME/.deno/bin:$PATH\""
 echo ""
 
 # Recommended bindkey commands
