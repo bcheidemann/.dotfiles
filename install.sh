@@ -48,9 +48,10 @@ fi
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # git
-echo "Configuring git user..."
+echo "Configuring git..."
 git config --global user.email "ben@heidemann.co.uk"
 git config --global user.name "Ben Heidemann"
+git config --global init.defaultBranch main
 echo ""
 
 # Global .gitignore
