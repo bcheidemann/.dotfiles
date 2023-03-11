@@ -197,9 +197,46 @@ cdlla() {
   cdr $1 lla ${@:2}
 }
 
-########
-# Sync #
-########
+##########
+# Zellij #
+##########
+zls() {
+  zellij list-sessions $@
+}
+
+za() {
+  zellij attach $@
+}
+
+z() {
+  # Get list of sessions
+  local SESSIONS=$(zellij list-sessions)
+  echo $SESSIONS
+
+  # Check if sessions exist
+  if [[ -z "$SESSIONS" ]]; then
+      # No sessions exist, start new session
+      zellij
+      return
+  fi
+
+  local NEW_SESSION="++ New Session ++"
+  local SESSION="$(rspicker $SESSIONS$'\n'$NEW_SESSION)"
+
+  # Check if user selected new session
+  if [[ "$SESSION" == "$NEW_SESSION" ]]; then
+      zellij
+      return
+  fi
+
+  # Attach to selected session
+  echo "Attaching to $SESSION..."
+  zellij attach $SESSION
+}
+
+############
+# Dotfiles #
+############
 dotfiles() {
   if [[ $# -eq 0 ]]
   then
@@ -245,6 +282,7 @@ help() {
     ahelp
     nvhelp
     tmuxhelp
+    zellijhelp
     vscodehelp
   elif [[ $1 == "aliases" ]]
   then
@@ -255,6 +293,9 @@ help() {
   elif [[ $1 == "tmux" ]]
   then
     tmuxhelp
+  elif [[ $1 == "zellij" ]]
+  then
+    zellijhelp
   elif [[ $1 == "vscode" ]]
   then
     vscodehelp
@@ -264,6 +305,7 @@ help() {
 }
 
 ahelp() {
+  echo "================== GIT =================="
   echo "Git Commands"
   echo "  gcm    - Commit"
   echo "  gcme   - Commit (allow empty)"
@@ -305,6 +347,7 @@ ahelp() {
 }
 
 nvhelp() {
+  echo "================== NVIM =================="
   echo "Editor Commands"
   echo "  :map   - View all mapped keys"
   echo "  :nmap  - View all mapped keys (normal mode)"
@@ -366,6 +409,7 @@ nvhelp() {
 }
 
 tmuxhelp() {
+  echo "================== TMUX =================="
   echo "Tmux Shortcuts"
   echo "  <C-b>%      - Split pane vertically"
   echo "  <C-b>\"      - Split pane horizontally"
@@ -374,7 +418,18 @@ tmuxhelp() {
   echo ""
 }
 
+zellijhelp() {
+  echo "================== Zellij =================="
+  echo "Zellij Commands"
+  echo "  z      - Start or attach to Zellij session"
+  echo "  zls    - List Zellij sessions"
+  echo "  za     - Attach to Zellij session"
+  echo "  zellij - Start Zellij"
+  echo ""
+}
+
 vscodehelp() {
+  echo "================== VS CODE =================="
   echo "VS Code Shortcuts (Mac)"
   echo "  ⌘ + shift + o    - Navigate outline"
   echo "  ⌘ + \\            - Split pane"

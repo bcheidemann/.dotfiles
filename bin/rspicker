@@ -1,0 +1,16 @@
+#!/usr/bin/env zsh
+
+INSTALL_DIR="$DOTFILES_PATH/.installs/rspicker"
+mkdir -p "$INSTALL_DIR/bin"
+
+if [[ -x "$INSTALL_DIR/bin/rspicker.wasm" ]]
+then
+  wasmtime "$INSTALL_DIR/bin/rspicker.wasm" "$@"
+  exit
+fi
+
+echo "Installing rspicker..."
+echo ""
+echo "Downloading rspicker.wasm..."
+echo "ERROR: not implemented (TODO)"
+exit 1

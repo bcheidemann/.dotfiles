@@ -48,11 +48,15 @@ fi
 BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # git
-echo "Configuring git..."
-git config --global user.email "ben@heidemann.co.uk"
-git config --global user.name "Ben Heidemann"
-git config --global init.defaultBranch main
-echo ""
+# Check if git config is set
+if ! git config --global user.email | grep -q "ben@heidemann.co.uk";
+then
+    echo "Configuring git..."
+    git config --global user.email "ben@heidemann.co.uk"
+    git config --global user.name "Ben Heidemann"
+    git config --global init.defaultBranch main
+    echo ""
+fi
 
 # Global .gitignore
 if ! git config --global core.excludesfile | grep -q "$HOME/.gitignore"; then
@@ -78,12 +82,20 @@ if [ ! -d "$HOME/.config/nvim" ]; then
     echo ""
 fi
 
+# Install wasmtime
+if ! command -v wasmtime &> /dev/null
+then
+    echo "Installing wasmtime..."
+    curl https://wasmtime.dev/install.sh -sSf | bash
+    echo ""
+fi
+
 # Global .aliases
 echo "Please add the following line to your .zshrc file:"
 echo " export DOTFILES_PATH=$BASEDIR"
 echo " source \$DOTFILES_PATH/.aliases"
-echo " export PATH=\"$DOTFILES_PATH/bin:$PATH\""
-echo " export PATH=\"$HOME/.deno/bin:$PATH\""
+echo " export PATH=\"$DOTFILES_PATH/bin:\$PATH\""
+echo " export PATH=\"$HOME/.deno/bin:\$PATH\""
 echo ""
 
 # Recommended bindkey commands
