@@ -221,7 +221,7 @@ z() {
   fi
 
   local NEW_SESSION="++ New Session ++"
-  local SESSION="$(rspicker $SESSIONS$'\n'$NEW_SESSION)"
+  local SESSION="$(rspicker $NEW_SESSION$'\n'$SESSIONS)"
 
   # Check if user selected new session
   if [[ "$SESSION" == "$NEW_SESSION" ]]; then
