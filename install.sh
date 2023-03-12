@@ -90,6 +90,19 @@ then
     echo ""
 fi
 
+# Install tfsec
+if ! command -v tfsec &> /dev/null
+then
+    echo "Installing tfsec..."
+    # Check if Linux
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
+    else
+        echo "WARNING: tfsec was not installed because the OS is not Linux. Please install it manually."
+    fi
+    echo ""
+fi
+
 # Global .aliases
 echo "Please add the following line to your .zshrc file:"
 echo " export DOTFILES_PATH=$BASEDIR"
