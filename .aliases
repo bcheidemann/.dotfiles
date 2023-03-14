@@ -10,6 +10,11 @@
 # Git Commands #
 ################
 
+## Git Branch
+gb() {
+  git branch $@
+}
+
 ## Commit
 gcm() {
   git commit -m $@
@@ -307,6 +312,7 @@ help() {
 ahelp() {
   echo "================== GIT =================="
   echo "Git Commands"
+  echo "  gb     - Branch"
   echo "  gcm    - Commit"
   echo "  gcme   - Commit (allow empty)"
   echo "  gp     - Pull"
@@ -372,7 +378,7 @@ nvhelp() {
   echo ""
   echo "Diffview"
   echo "  <leader>dvo - Open Diffview"
-  echo "  <leader>dvo - Close Diffview"
+  echo "  <leader>dvc - Close Diffview"
   echo ""
   echo "Surround"
   echo "  sd          - Delete surrounds"
