@@ -60,7 +60,7 @@ gco() {
 }
 
 ## Checkout New
-gcb() {
+gcob() {
   git checkout -b $@
 }
 
@@ -312,21 +312,21 @@ help() {
 ahelp() {
   echo "================== GIT =================="
   echo "Git Commands"
+  echo "  ga     - Add"
+  echo "  gaa    - Add all"
   echo "  gb     - Branch"
   echo "  gcm    - Commit"
   echo "  gcme   - Commit (allow empty)"
+  echo "  gco    - Checkout"
+  echo "  gcob   - Checkout new"
   echo "  gp     - Pull"
   echo "  gpo    - Pull origin"
-  echo "  gpsh   - Push"
   echo "  gpbl   - Publish"
   echo "  gpblo  - Publish origin"
-  echo "  gco    - Checkout"
-  echo "  gcb    - Checkout new"
-  echo "  ga     - Add"
-  echo "  gaa    - Add all"
+  echo "  gpsh   - Push"
   echo "  gs     - Show"
-  echo "  gshead - Show HEAD"
   echo "  gshd   - Show commit hash of file deletion"
+  echo "  gshead - Show HEAD"
   echo "  gshlc  - Show commit hash of last change to file before deletion"
   echo "  gslc   - Show last contents of deleted file"
   echo ""
