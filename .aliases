@@ -113,6 +113,11 @@ gslc() {
   done <<< "$LAST_CHANGED_HASHES"
 }
 
+## Undo last commit (keep changes)
+gundo() {
+  git reset --soft HEAD~1
+}
+
 ####################
 # Generic Commands #
 ####################
@@ -329,6 +334,7 @@ ahelp() {
   echo "  gshead - Show HEAD"
   echo "  gshlc  - Show commit hash of last change to file before deletion"
   echo "  gslc   - Show last contents of deleted file"
+  echo "  gundo  - Undo last commit (keep changes)"
   echo ""
   echo "Generic Commands"
   echo "  wargs - Run command once with each arg string"
