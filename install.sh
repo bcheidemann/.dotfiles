@@ -11,14 +11,26 @@ else
   exit 1
 fi
 
+# Install NVM
+if ! command -v nvm &> /dev/null
+then
+    echo "Installing NVM..."
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    echo ""
+    echo "# NVM" >> $HOME/.zshrc
+    echo "export NVM_DIR=\"$HOME/.nvm"\" >> $HOME/.zshrc
+    echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && \. \"\$NVM_DIR/nvm.sh\"  # This loads nvm" >> $HOME/.zshrc
+    echo "[ -s \"\$NVM_DIR/bash_completion\" ] && \. \"\$NVM_DIR/bash_completion\"  # This loads nvm bash_completion" >> $HOME/.zshrc
+    echo ""
+fi
+
 # Check we have cargo installed
-echo "Checking we have cargo installed..."
 if ! command -v cargo &> /dev/null
 then
-    echo "Error: cargo could not be found"
+    echo "Installing the rust toolchain..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    source "$HOME/.cargo/env"
     echo ""
-    echo "Please install cargo to run this script."
-    exit 1
 fi
 
 # Install deno
@@ -26,6 +38,14 @@ if ! command -v deno &> /dev/null
 then
     echo "Installing deno..."
     cargo install deno
+    echo ""
+fi
+
+# Install zellij
+if ! command -v zellij &> /dev/null
+then
+    echo "Installing Zellij..."
+    cargo install --locked zellij
     echo ""
 fi
 
@@ -37,6 +57,7 @@ then
     echo ""
 fi
 
+# Install runrc
 if ! command -v run &> /dev/null
 then
     echo "Installing runrc..."
