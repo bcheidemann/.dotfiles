@@ -10,6 +10,11 @@
 # Git Commands #
 ################
 
+## Git Fetch
+gf() {
+  git fetch $@
+}
+
 ## Git Branch
 gb() {
   git branch $@
