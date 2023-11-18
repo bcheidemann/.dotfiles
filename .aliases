@@ -118,6 +118,16 @@ gundo() {
   git reset --soft HEAD~1
 }
 
+## Git log
+gl() {
+  git log $@
+}
+
+## Git log number
+gln() {
+  gl -n $@
+}
+
 ####################
 # Generic Commands #
 ####################
@@ -264,6 +274,13 @@ dotfiles() {
   fi
 }
 
+########
+# Nvim #
+########
+nv() {
+  nvim $@
+}
+
 dfusage() {
   echo "Usage: dotfiles <command>"
   echo "command:"
@@ -335,6 +352,8 @@ ahelp() {
   echo "  gshlc  - Show commit hash of last change to file before deletion"
   echo "  gslc   - Show last contents of deleted file"
   echo "  gundo  - Undo last commit (keep changes)"
+  echo "  gl     - Log commits"
+  echo "  gln    - Log n commits"
   echo ""
   echo "Generic Commands"
   echo "  wargs - Run command once with each arg string"
