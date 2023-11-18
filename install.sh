@@ -46,6 +46,8 @@ if ! command -v zellij &> /dev/null
 then
     echo "Installing Zellij..."
     cargo install --locked zellij
+    mkdir -p ~/.config/zellij
+    zellij setup --dump-config > ~/.config/zellij/config.kdl
     echo ""
 fi
 
@@ -124,6 +126,11 @@ then
     echo ""
 fi
 
+# Separator
+echo ""
+echo "----------------------------------------"
+echo ""
+
 # Global .aliases
 echo "Please add the following line to your .zshrc file:"
 echo " export DOTFILES_PATH=$BASEDIR"
@@ -137,6 +144,11 @@ echo "You may also want to add the following lines to your .zshrc file:"
 echo " bindkey \"^[[3~\" delete-char"
 echo " bindkey \"^[[1;5C\" emacs-forward-word"
 echo " bindkey \"^[[1;5D\" emacs-backward-word"
+echo ""
+
+# Zellij config
+echo "You may have to do some OS dependent configuration of Zellij to support copying from the terminal. See:"
+echo " https://zellij.dev/documentation/faq.html#copy--paste-isnt-working-how-can-i-fix-this"
 echo ""
 
 echo "Done."

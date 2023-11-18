@@ -10,6 +10,11 @@
 # Git Commands #
 ################
 
+## Git Fetch
+gf() {
+  git fetch $@
+}
+
 ## Git Branch
 gb() {
   git branch $@
@@ -334,6 +339,7 @@ help() {
 ahelp() {
   echo "================== GIT =================="
   echo "Git Commands"
+  echo "  gf     - Fetch"
   echo "  ga     - Add"
   echo "  gaa    - Add all"
   echo "  gb     - Branch"
