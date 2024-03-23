@@ -234,29 +234,7 @@ za() {
 }
 
 z() {
-  # Get list of sessions
-  local SESSIONS=$(zellij list-sessions)
-  echo $SESSIONS
-
-  # Check if sessions exist
-  if [[ -z "$SESSIONS" ]]; then
-      # No sessions exist, start new session
-      zellij
-      return
-  fi
-
-  local NEW_SESSION="++ New Session ++"
-  local SESSION="$(rspicker $NEW_SESSION$'\n'$SESSIONS)"
-
-  # Check if user selected new session
-  if [[ "$SESSION" == "$NEW_SESSION" ]]; then
-      zellij
-      return
-  fi
-
-  # Attach to selected session
-  echo "Attaching to $SESSION..."
-  zellij attach $SESSION
+  zellij $@
 }
 
 ############
