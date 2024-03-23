@@ -257,6 +257,16 @@ dotfiles() {
   fi
 }
 
+#########
+# Tools #
+#########
+lg() {
+  lazygit $@
+}
+rspicker() {
+  wasmtime $DOTFILES_PATH/.installs/rspicker/bin/rspicker.wasm $@
+}
+
 ########
 # Nvim #
 ########
