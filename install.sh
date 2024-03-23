@@ -75,7 +75,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if ! git config --global user.email | grep -q "ben@heidemann.co.uk";
 then
     echo "Configuring git..."
-    git config --global user.email "ben@heidemann.co.uk"
+    git config --global user.email "ben@heidemann.dev"
     git config --global user.name "Ben Heidemann"
     git config --global init.defaultBranch main
     echo ""
