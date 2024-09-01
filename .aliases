@@ -188,9 +188,9 @@ ll() {
 }
 
 ## List all entries
-la() {
-  ls -a $@
-}
+# la() {
+#  ls -a $@
+# }
 
 ## List all entries in long format
 lla() {
@@ -249,7 +249,7 @@ dotfiles() {
     dfsync
   elif [[ $1 == "help" ]]
   then
-    dfusage 
+    dfusage
   else
     echo "Unrecognised command $1"
     echo ""
