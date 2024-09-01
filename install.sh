@@ -38,6 +38,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Install lazygit
 ./scripts/installers/lazygit.sh
 
+# Install GitHub CLI
+./scripts/installers/gh.sh
+
 # Patch .bashrc
 ./scripts/installers/bashrc.sh
 
