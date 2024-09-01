@@ -13,6 +13,9 @@ sudo echo "Successfully authenticated."
 # Install NVM
 ./scripts/installers/nvm.sh
 
+# Install NVM Bash Integration
+./scripts/installers/nvm-bash-integration.sh
+
 # Install Rust
 ./scripts/installers/rust.sh
 source "$HOME/.cargo/env"
