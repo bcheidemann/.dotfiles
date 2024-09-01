@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+# Ensure sudo access
+echo "This script requires sudo access. Please authenticate."
+sudo echo "Successfully authenticated."
+
 # Install build-essential
 ./scripts/installers/build-essential.sh
 
