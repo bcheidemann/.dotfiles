@@ -48,6 +48,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Install GitHub CLI
 ./scripts/installers/gh.sh
 
+# Install Pulumi CLI
+./scripts/installers/pulumi.sh
+
 # Patch .bashrc
 ./scripts/installers/bashrc.sh
 
