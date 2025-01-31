@@ -10,6 +10,9 @@ sudo echo "Successfully authenticated."
 # Install cmake
 ./scripts/installers/cmake.sh
 
+# Install SDK Man!
+./scripts/installers/sdkman.sh
+
 # Install NVM
 ./scripts/installers/nvm.sh
 
