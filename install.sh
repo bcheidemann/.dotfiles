@@ -7,6 +7,12 @@ sudo echo "Successfully authenticated."
 # Install build-essential
 ./scripts/installers/build-essential.sh
 
+# Install xclip
+./scripts/installers/xclip.sh
+
+# Install tmux
+./scripts/installers/tmux.sh
+
 # Install cmake
 ./scripts/installers/cmake.sh
 
