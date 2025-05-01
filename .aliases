@@ -441,6 +441,12 @@ tmuxhelp() {
   echo "  <C-b>x      - Close pane"
   echo "  <C-b>o      - Cycle panes"
   echo ""
+  echo "Tmux Copy Mode"
+  echo "  <C-b>[      - Enter copy mode"
+  echo "  v           - Visual selection"
+  echo "  V           - Select lines"
+  echo "  y           - Yank to clipboard"
+  echo ""
 }
 
 zellijhelp() {
