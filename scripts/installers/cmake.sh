@@ -10,7 +10,9 @@ install() {
     sudo apt install cmake -y
 }
 
-if command_exists "apt"; then
+if command_exists "cmake"; then
+    echo "Installing $INSTALL_NAME... Already Installed."
+else
     echo "Installing $INSTALL_NAME..."
     install &> $INSTALL_LOG_FILE &
     install_pid=$!
@@ -31,6 +33,4 @@ if command_exists "apt"; then
         echo "Installing $INSTALL_NAME... Done!"
         rm $INSTALL_LOG_FILE
     fi
-else
-    echo "Installing $INSTALL_NAME... Already Installed."
 fi
