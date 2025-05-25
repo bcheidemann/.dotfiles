@@ -60,6 +60,9 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Install Pulumi CLI
 ./scripts/installers/pulumi.sh
 
+# Evil Helix
+./scripts/installers/evil-helix.sh
+
 # Patch .bashrc
 ./scripts/installers/bashrc.sh
 

@@ -1,0 +1,47 @@
+theme = "gruvbox"
+
+[editor]
+line-number = "relative"
+rulers = [80, 120]
+bufferline = "always"
+color-modes = true
+end-of-line-diagnostics = "hint"
+
+[editor.statusline]
+left = [
+    "mode",
+    "spacer",
+    "version-control",
+    "spinner",
+    "file-name",
+    "read-only-indicator",
+    "file-modification-indicator",
+]
+right = [
+    "workspace-diagnostics",
+    "diagnostics",
+    "selections",
+    "register",
+    "position",
+    "file-encoding",
+]
+
+[editor.file-picker]
+hidden = false
+
+[editor.indent-guides]
+render = true
+rainbow-option = "dim"                                          # supports "normal", "dim", "none"
+rainbow = ["red", "yellow", "green", "blue", "teal", "pink"]
+character = "░"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"
+
+[keys.normal]
+"_" = "goto_line_start"
+V = ["select_mode", "select_line_below"]
+
+[keys.select]
+"_" = "goto_line_start"
