@@ -236,6 +236,15 @@ za() {
 z() {
   zellij $@
 }
+zl() {
+  zellij --layout $DOTFILES_PATH/.config/zellij/layouts/$1.kdl ${@:2}
+}
+zll() {
+  local PREV_DIR=$(pwd)
+  cd $DOTFILES_PATH/.config/zellij/layouts
+  ls $@
+  cd $PREV_DIR
+}
 
 ############
 # Dotfiles #
@@ -455,6 +464,8 @@ zellijhelp() {
   echo "  z      - Start or attach to Zellij session"
   echo "  zls    - List Zellij sessions"
   echo "  za     - Attach to Zellij session"
+  echo "  zl     - Start Zellij session with a layout (e.g. zl code)"
+  echo "  zll    - List Zellij layouts"
   echo "  zellij - Start Zellij"
   echo ""
 }
