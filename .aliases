@@ -20,6 +20,11 @@ gb() {
   git branch $@
 }
 
+## Git Show Current Branch
+gbsc() {
+  git branch --show-current $@
+}
+
 ## Commit
 gcm() {
   git commit -m $@
@@ -340,6 +345,7 @@ ahelp() {
   echo "  ga     - Add"
   echo "  gaa    - Add all"
   echo "  gb     - Branch"
+  echo "  gbsc   - Show Current Branch"
   echo "  gcm    - Commit"
   echo "  gcme   - Commit (allow empty)"
   echo "  gco    - Checkout"
