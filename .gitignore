@@ -1,3 +1,4 @@
+/.obsidian
 /node_modules
 
 .DS_Store
@@ -8,3 +9,6 @@ NOTES.md
 Notes.md
 
 .runrc
+
+._*
+
