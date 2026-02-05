@@ -8,7 +8,7 @@ sudo echo "Successfully authenticated."
 ./scripts/installers/build-essential.sh
 
 # Install xclip
-./scripts/installers/xclip.sh
+# ./scripts/installers/xclip.sh
 
 # Install tmux
 ./scripts/installers/tmux.sh
