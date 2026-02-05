@@ -32,8 +32,8 @@ source "$HOME/.cargo/env"
 # Install Zellij
 ./scripts/installers/zellij.sh
 
-# Install runrc
-./scripts/installers/runrc.sh
+# Install just
+./scripts/installers/just.sh
 
 # Install global .gitignore
 ./scripts/installers/global-gitignore.sh

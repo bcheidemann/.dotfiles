@@ -3,14 +3,14 @@
 source ./scripts/helpers/command_exists.sh
 source ./scripts/helpers/show_last_line.sh
 
-INSTALL_NAME="runrc"
-INSTALL_LOG_FILE=/tmp/install-runrc.log
+INSTALL_NAME="just"
+INSTALL_LOG_FILE=/tmp/install-just.log
 
 install() {
-    deno install --global --allow-all -n run https://raw.githubusercontent.com/bcheidemann/runrc/main/src/main.ts
+    cargo install just
 }
 
-if command_exists "run"; then
+if command_exists "just"; then
     echo "Installing $INSTALL_NAME... Already Installed."
 else
     echo "Installing $INSTALL_NAME..."
