@@ -1,6 +1,7 @@
 theme = "gruvbox"
 
 [editor]
+scroll-lines = 1
 line-number = "relative"
 rulers = [80, 120]
 bufferline = "always"
@@ -41,7 +42,7 @@ other-lines = "error"
 
 [keys.normal]
 "_" = "goto_line_start"
-V = ["select_mode", "select_line_below"]
+V = ["select_mode", "extend_to_line_bounds"]
 
 [keys.select]
 "_" = "goto_line_start"

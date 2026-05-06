@@ -8,7 +8,7 @@ sudo echo "Successfully authenticated."
 ./scripts/installers/build-essential.sh
 
 # Install xclip
-./scripts/installers/xclip.sh
+# ./scripts/installers/xclip.sh
 
 # Install tmux
 ./scripts/installers/tmux.sh
@@ -32,8 +32,8 @@ source "$HOME/.cargo/env"
 # Install Zellij
 ./scripts/installers/zellij.sh
 
-# Install runrc
-./scripts/installers/runrc.sh
+# Install just
+./scripts/installers/just.sh
 
 # Install global .gitignore
 ./scripts/installers/global-gitignore.sh
@@ -59,9 +59,6 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Install Pulumi CLI
 ./scripts/installers/pulumi.sh
-
-# Evil Helix
-./scripts/installers/evil-helix.sh
 
 # Patch .bashrc
 ./scripts/installers/bashrc.sh
